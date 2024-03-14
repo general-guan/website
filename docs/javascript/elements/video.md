@@ -2,7 +2,7 @@
 title: AAAAA
 ---
 
-# <video>，<audio>
+# `<video>`，`<audio>`
 
 ## 概述
 
@@ -21,8 +21,8 @@ title: AAAAA
 
 ```html
 <audio id="music">
-	<source src="music.mp3" type="audio/mpeg" />
-	<source src="music.ogg" type='audio/ogg; codec="vorbis"' />
+  <source src="music.mp3" type="audio/mpeg" />
+  <source src="music.ogg" type='audio/ogg; codec="vorbis"' />
 </audio>
 ```
 
@@ -82,13 +82,13 @@ title: AAAAA
 var myVideo = document.getElementById('myVideoElement');
 
 myVideo
-	.play()
-	.then(() => {
-		console.log('playing');
-	})
-	.catch((error) => {
-		console.log(error);
-	});
+  .play()
+  .then(() => {
+    console.log('playing');
+  })
+  .catch((error) => {
+    console.log(error);
+  });
 ```
 
 ## HTMLVideoElement 接口
@@ -124,8 +124,8 @@ var song = new Audio([URLString]);
 ```javascript
 var a = new Audio();
 if (a.canPlayType('audio/wav')) {
-	a.src = 'soundeffect.wav';
-	a.play();
+  a.src = 'soundeffect.wav';
+  a.play();
 }
 ```
 

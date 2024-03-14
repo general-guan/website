@@ -2,7 +2,7 @@
 title: AAAAA
 ---
 
-# <img> 元素
+# `<img>` 元素
 
 ## 概述
 
@@ -142,7 +142,7 @@ img.height; // 400
 ```javascript
 var img = document.getElementById('img');
 if (img.naturalHeight > img.naturalWidth) {
-	img.classList.add('portrait');
+  img.classList.add('portrait');
 }
 ```
 
@@ -191,7 +191,7 @@ img.crossOrigin; // "anonymous"
 ```javascript
 // HTML 代码为 <img src="example.jpg" onload="loadImage()">
 function loadImage() {
-	console.log('Image is loaded');
+  console.log('Image is loaded');
 }
 ```
 
@@ -200,6 +200,6 @@ function loadImage() {
 ```javascript
 // HTML 代码为 <img src="image.gif" onerror="myFunction()">
 function myFunction() {
-	console.log('There is something wrong');
+  console.log('There is something wrong');
 }
 ```

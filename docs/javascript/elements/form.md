@@ -2,7 +2,7 @@
 title: AAAAA
 ---
 
-# <form> 元素
+# `<form>` 元素
 
 `<form>`元素代表了表单，继承了 HTMLFormElement 接口。
 

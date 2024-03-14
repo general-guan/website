@@ -2,7 +2,7 @@
 title: AAAAA
 ---
 
-# <button> 元素
+# `<button>` 元素
 
 `<button>`元素继承了`HTMLButtonElement`接口。它有以下的实例属性。
 
@@ -62,7 +62,7 @@ title: AAAAA
 const button = document.getElementById('test');
 
 for (var i = 0; i < button.labels.length; i++) {
-	console.log(button.labels[i].textContent);
+  console.log(button.labels[i].textContent);
 }
 // "Label 1"
 // "Label 2"

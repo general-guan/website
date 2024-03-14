@@ -1,6 +1,4 @@
----
-title: Object 对象
----
+# Object 对象
 
 ## 简介
 
@@ -16,7 +14,7 @@ JavaScript 的所有其他对象都继承自 `Object` 对象，即那些对象�
 
 ```javascript
 Object.print = function (o) {
-	console.log(o);
+  console.log(o);
 };
 ```
 
@@ -28,7 +26,7 @@ Object.print = function (o) {
 
 ```javascript
 Object.prototype.print = function () {
-	console.log(this);
+  console.log(this);
 };
 
 var obj = new Object();
@@ -90,7 +88,7 @@ obj === fn; // true
 
 ```javascript
 function isObject(value) {
-	return value === Object(value);
+  return value === Object(value);
 }
 
 isObject([]); // true
@@ -134,8 +132,8 @@ obj instanceof Number; // true
 
 ```javascript
 var obj = {
-	p1: 123,
-	p2: 456,
+  p1: 123,
+  p2: 456,
 };
 
 Object.keys(obj); // ["p1", "p2"]
@@ -145,8 +143,8 @@ Object.keys(obj); // ["p1", "p2"]
 
 ```javascript
 var obj = {
-	p1: 123,
-	p2: 456,
+  p1: 123,
+  p2: 456,
 };
 
 Object.getOwnPropertyNames(obj); // ["p1", "p2"]
@@ -167,8 +165,8 @@ Object.getOwnPropertyNames(a); // ["0", "1", "length"]
 
 ```javascript
 var obj = {
-	p1: 123,
-	p2: 456,
+  p1: 123,
+  p2: 456,
 };
 
 Object.keys(obj).length; // 2
@@ -239,7 +237,7 @@ var obj = new Object();
 ```javascript
 var obj = new Object();
 obj.valueOf = function () {
-	return 2;
+  return 2;
 };
 
 1 + obj; // 3
@@ -267,7 +265,7 @@ o2.toString(); // "[object Object]"
 var obj = new Object();
 
 obj.toString = function () {
-	return 'hello';
+  return 'hello';
 };
 
 obj + ' ' + 'world'; // "hello world"
@@ -283,7 +281,7 @@ obj + ' ' + 'world'; // "hello world"
 '123'.toString(); // "123"
 
 (function () {
-	return 123;
+  return 123;
 }).toString();
 // "function () {
 //   return 123;
@@ -346,8 +344,8 @@ Object.prototype.toString.call([]); // "[object Array]"
 
 ```javascript
 var type = function (o) {
-	var s = Object.prototype.toString.call(o);
-	return s.match(/\[object (.*?)\]/)[1].toLowerCase();
+  var s = Object.prototype.toString.call(o);
+  return s.match(/\[object (.*?)\]/)[1].toLowerCase();
 };
 
 type({}); // "object"
@@ -363,24 +361,24 @@ type(new Date()); // "date"
 
 ```javascript
 var type = function (o) {
-	var s = Object.prototype.toString.call(o);
-	return s.match(/\[object (.*?)\]/)[1].toLowerCase();
+  var s = Object.prototype.toString.call(o);
+  return s.match(/\[object (.*?)\]/)[1].toLowerCase();
 };
 
 [
-	'Null',
-	'Undefined',
-	'Object',
-	'Array',
-	'String',
-	'Number',
-	'Boolean',
-	'Function',
-	'RegExp',
+  'Null',
+  'Undefined',
+  'Object',
+  'Array',
+  'String',
+  'Number',
+  'Boolean',
+  'Function',
+  'RegExp',
 ].forEach(function (t) {
-	type['is' + t] = function (o) {
-		return type(o) === t.toLowerCase();
-	};
+  type['is' + t] = function (o) {
+    return type(o) === t.toLowerCase();
+  };
 });
 
 type.isObject({}); // true
@@ -402,12 +400,12 @@ obj.toLocaleString(obj); // "[object Object]"
 
 ```javascript
 var person = {
-	toString: function () {
-		return 'Henry Norman Bethune';
-	},
-	toLocaleString: function () {
-		return '白求恩';
-	},
+  toString: function () {
+    return 'Henry Norman Bethune';
+  },
+  toLocaleString: function () {
+    return '白求恩';
+  },
 };
 
 person.toString(); // Henry Norman Bethune
@@ -434,7 +432,7 @@ date.toLocaleString(); // "1/01/2018, 12:01:33 PM"
 
 ```javascript
 var obj = {
-	p: 123,
+  p: 123,
 };
 
 obj.hasOwnProperty('p'); // true

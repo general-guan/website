@@ -1,6 +1,4 @@
----
-title: Vite
----
+# Vite
 
 ## 安装
 
@@ -24,10 +22,10 @@ resolve: {
 ```json
 // tsconfig.json
 {
-	"compilerOptions": {
-		"baseUrl": "./",
-		"paths": { "@/*": ["src/*"] }
-	}
+  "compilerOptions": {
+    "baseUrl": "./",
+    "paths": { "@/*": ["src/*"] }
+  }
 }
 ```
 

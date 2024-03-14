@@ -1,6 +1,4 @@
----
-title: 常用网站
----
+# 常用网站
 
 import { LinkCard, CardGrid } from '@astrojs/starlight/components';
 

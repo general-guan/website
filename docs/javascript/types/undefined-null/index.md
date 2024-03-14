@@ -1,6 +1,4 @@
----
-title: undefined 和 null
----
+# undefined 和 null
 
 ## 简介
 
@@ -12,12 +10,12 @@ title: undefined 和 null
 
 ```jsx
 if (!undefined) {
-	console.log('undefined is false');
+  console.log('undefined is false');
 }
 // undefined is false
 
 if (!null) {
-	console.log('null is false');
+  console.log('null is false');
 }
 // null is false
 

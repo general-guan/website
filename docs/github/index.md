@@ -1,6 +1,4 @@
----
-title: Github
----
+# Github
 
 ## Github 配置 SSH key
 

@@ -1,6 +1,4 @@
----
-title: 错误处理机制
----
+# 错误处理机制
 
 ## Error 实例对象
 
@@ -23,7 +21,7 @@ JavaScript 语言标准只提到，`Error` 实例对象必须有 `message` 属�
 
 ```javascript
 if (error.name) {
-	console.log(error.name + ': ' + error.message);
+  console.log(error.name + ': ' + error.message);
 }
 ```
 
@@ -31,15 +29,15 @@ if (error.name) {
 
 ```javascript
 function throwit() {
-	throw new Error('');
+  throw new Error('');
 }
 
 function catchit() {
-	try {
-		throwit();
-	} catch (e) {
-		console.log(e.stack); // print stack trace
-	}
+  try {
+    throwit();
+  } catch (e) {
+    console.log(e.stack); // print stack trace
+  }
 }
 
 catchit();
@@ -147,8 +145,8 @@ err3.message; // "出错了，变量类型无效！"
 
 ```javascript
 function UserError(message) {
-	this.message = message || '默认信息';
-	this.name = 'UserError';
+  this.message = message || '默认信息';
+  this.name = 'UserError';
 }
 
 UserError.prototype = new Error();
@@ -169,7 +167,7 @@ new UserError('这是自定义的错误！');
 var x = -1;
 
 if (x <= 0) {
-	throw new Error('x 必须为正数');
+  throw new Error('x 必须为正数');
 }
 // Uncaught Error: x 必须为正数
 ```
@@ -178,8 +176,8 @@ if (x <= 0) {
 
 ```javascript
 function UserError(message) {
-	this.message = message || '默认信息';
-	this.name = 'UserError';
+  this.message = message || '默认信息';
+  this.name = 'UserError';
 }
 
 throw new UserError('出错了！');
@@ -203,9 +201,9 @@ throw true;
 
 // 抛出一个对象
 throw {
-	toString: function () {
-		return 'Error!';
-	},
+  toString: function () {
+    return 'Error!';
+  },
 };
 // Uncaught {toString: ƒ}
 ```
@@ -218,10 +216,10 @@ throw {
 
 ```javascript
 try {
-	throw new Error('出错了!');
+  throw new Error('出错了!');
 } catch (e) {
-	console.log(e.name + ': ' + e.message);
-	console.log(e.stack);
+  console.log(e.name + ': ' + e.message);
+  console.log(e.stack);
 }
 // Error: 出错了!
 //   at <anonymous>:3:9
@@ -234,9 +232,9 @@ try {
 
 ```javascript
 try {
-	f();
+  f();
 } catch (e) {
-	// 处理错误
+  // 处理错误
 }
 ```
 
@@ -244,9 +242,9 @@ try {
 
 ```javascript
 try {
-	throw '出错了';
+  throw '出错了';
 } catch (e) {
-	console.log(111);
+  console.log(111);
 }
 console.log(222);
 // 111
@@ -259,13 +257,13 @@ console.log(222);
 var n = 100;
 
 try {
-	throw n;
+  throw n;
 } catch (e) {
-	if (e <= 50) {
-		// ...
-	} else {
-		throw e;
-	}
+  if (e <= 50) {
+    // ...
+  } else {
+    throw e;
+  }
 }
 // Uncaught 100
 ```
@@ -274,14 +272,14 @@ try {
 
 ```javascript
 try {
-	foo.bar();
+  foo.bar();
 } catch (e) {
-	if (e instanceof EvalError) {
-		console.log(e.name + ': ' + e.message);
-	} else if (e instanceof RangeError) {
-		console.log(e.name + ': ' + e.message);
-	}
-	// ...
+  if (e instanceof EvalError) {
+    console.log(e.name + ': ' + e.message);
+  } else if (e instanceof RangeError) {
+    console.log(e.name + ': ' + e.message);
+  }
+  // ...
 }
 ```
 
@@ -293,12 +291,12 @@ try {
 
 ```javascript
 function cleansUp() {
-	try {
-		throw new Error('出错了……');
-		console.log('此行不会执行');
-	} finally {
-		console.log('完成清理工作');
-	}
+  try {
+    throw new Error('出错了……');
+    console.log('此行不会执行');
+  } finally {
+    console.log('完成清理工作');
+  }
 }
 
 cleansUp();
@@ -312,12 +310,12 @@ cleansUp();
 
 ```javascript
 function idle(x) {
-	try {
-		console.log(x);
-		return 'result';
-	} finally {
-		console.log('FINALLY');
-	}
+  try {
+    console.log(x);
+    return 'result';
+  } finally {
+    console.log('FINALLY');
+  }
 }
 
 idle('hello');
@@ -332,11 +330,11 @@ idle('hello');
 ```javascript
 var count = 0;
 function countUp() {
-	try {
-		return count;
-	} finally {
-		count++;
-	}
+  try {
+    return count;
+  } finally {
+    count++;
+  }
 }
 
 countUp();
@@ -353,11 +351,11 @@ count;
 openFile();
 
 try {
-	writeFile(Data);
+  writeFile(Data);
 } catch (e) {
-	handleError(e);
+  handleError(e);
 } finally {
-	closeFile();
+  closeFile();
 }
 ```
 
@@ -367,20 +365,20 @@ try {
 
 ```javascript
 function f() {
-	try {
-		console.log(0);
-		throw 'bug';
-	} catch (e) {
-		console.log(1);
-		return true; // 这句原本会延迟到 finally 代码块结束再执行
-		console.log(2); // 不会运行
-	} finally {
-		console.log(3);
-		return false; // 这句会覆盖掉前面那句 return
-		console.log(4); // 不会运行
-	}
+  try {
+    console.log(0);
+    throw 'bug';
+  } catch (e) {
+    console.log(1);
+    return true; // 这句原本会延迟到 finally 代码块结束再执行
+    console.log(2); // 不会运行
+  } finally {
+    console.log(3);
+    return false; // 这句会覆盖掉前面那句 return
+    console.log(4); // 不会运行
+  }
 
-	console.log(5); // 不会运行
+  console.log(5); // 不会运行
 }
 
 var result = f();
@@ -398,21 +396,21 @@ result;
 
 ```javascript
 function f() {
-	try {
-		throw '出错了！';
-	} catch (e) {
-		console.log('捕捉到内部错误');
-		throw e; // 这句原本会等到finally结束再执行
-	} finally {
-		return false; // 直接返回
-	}
+  try {
+    throw '出错了！';
+  } catch (e) {
+    console.log('捕捉到内部错误');
+    throw e; // 这句原本会等到finally结束再执行
+  } finally {
+    return false; // 直接返回
+  }
 }
 
 try {
-	f();
+  f();
 } catch (e) {
-	// 此处不会执行
-	console.log('caught outer "bogus"');
+  // 此处不会执行
+  console.log('caught outer "bogus"');
 }
 
 //  捕捉到内部错误
@@ -424,14 +422,14 @@ try {
 
 ```javascript
 try {
-	try {
-		consle.log('Hello world!'); // 报错
-	} finally {
-		console.log('Finally');
-	}
-	console.log('Will I run?');
+  try {
+    consle.log('Hello world!'); // 报错
+  } finally {
+    console.log('Finally');
+  }
+  console.log('Will I run?');
 } catch (error) {
-	console.error(error.message);
+  console.error(error.message);
 }
 // Finally
 // consle is not defined

@@ -1,6 +1,4 @@
----
-title: Git
----
+# Git
 
 ```bash
 git config --global user.name "zhangsan"

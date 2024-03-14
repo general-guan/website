@@ -1,6 +1,4 @@
----
-title: Axios
----
+# Axios
 
 ```ts
 // utils/http.ts

@@ -1,6 +1,4 @@
----
-title: JSON 对象
----
+# JSON 对象
 
 ## JSON 格式
 

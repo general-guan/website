@@ -1,6 +1,4 @@
----
-title: 数值
----
+# 数值
 
 ## 简介
 
@@ -23,12 +21,12 @@ JavaScript 内部，所有数字都是以 64 位浮点数形式储存，即使�
 // false
 
 0.3 /
-	0.1(
-		// 2.9999999999999996
+  0.1(
+    // 2.9999999999999996
 
-		0.3 - 0.2
-	) ===
-	0.2 - 0.1;
+    0.3 - 0.2
+  ) ===
+  0.2 - 0.1;
 // false
 ```
 
@@ -95,7 +93,7 @@ JavaScript 的数值有两种表示方法
   ```jsx
   123e3; // 123000
   123e-3 - // 0.123
-  	3.1e12;
+    3.1e12;
   0.1e-23;
   ```
 
@@ -167,17 +165,17 @@ ES5 的严格模式和 ES6，已经废除了这种表示法，但是浏览器为
 
 ```jsx
 +0 - // 0
-	0(
-		// 0
-		-0
-	)
-		.toString()(
-			// '0'
-			+0
-		)
-		.toString() - // '0'
-	0 ===
-	+0; // true
+  0(
+    // 0
+    -0
+  )
+    .toString()(
+      // '0'
+      +0
+    )
+    .toString() - // '0'
+  0 ===
+  +0; // true
 0 === -0; // true
 0 === +0; // true
 ```
@@ -268,9 +266,9 @@ Math.pow(2, 1024); // Infinity
 
 ```jsx
 Infinity >
-	1000 - // true
-		Infinity <
-	-1000; // true
+  1000 - // true
+    Infinity <
+  -1000; // true
 
 Infinity > NaN; // false
 ```
@@ -486,7 +484,7 @@ isNaN(['123']); // false
 
 ```jsx
 function myIsNaN(value) {
-	return typeof value === 'number' && isNaN(value);
+  return typeof value === 'number' && isNaN(value);
 }
 ```
 
@@ -494,7 +492,7 @@ function myIsNaN(value) {
 
 ```jsx
 function myIsNaN(value) {
-	return value !== value;
+  return value !== value;
 }
 ```
 

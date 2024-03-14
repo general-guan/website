@@ -1,6 +1,4 @@
----
-title: 数据类型的转换
----
+# 数据类型的转换
 
 ## 简介
 
@@ -100,9 +98,9 @@ Number(obj); // NaN
 
 // 等同于
 if (typeof obj.valueOf() === 'object') {
-	Number(obj.toString());
+  Number(obj.toString());
 } else {
-	Number(obj.valueOf());
+  Number(obj.valueOf());
 }
 ```
 
@@ -118,12 +116,12 @@ Number({}); // NaN
 
 ```javascript
 var obj = {
-	valueOf: function () {
-		return {};
-	},
-	toString: function () {
-		return {};
-	},
+  valueOf: function () {
+    return {};
+  },
+  toString: function () {
+    return {};
+  },
 };
 
 Number(obj);
@@ -134,26 +132,26 @@ Number(obj);
 
 ```javascript
 Number({
-	valueOf: function () {
-		return 2;
-	},
+  valueOf: function () {
+    return 2;
+  },
 });
 // 2
 
 Number({
-	toString: function () {
-		return 3;
-	},
+  toString: function () {
+    return 3;
+  },
 });
 // 3
 
 Number({
-	valueOf: function () {
-		return 2;
-	},
-	toString: function () {
-		return 3;
-	},
+  valueOf: function () {
+    return 2;
+  },
+  toString: function () {
+    return 3;
+  },
 });
 // 2
 ```
@@ -214,12 +212,12 @@ String({ a: 1 }.toString());
 
 ```javascript
 var obj = {
-	valueOf: function () {
-		return {};
-	},
-	toString: function () {
-		return {};
-	},
+  valueOf: function () {
+    return {};
+  },
+  toString: function () {
+    return {};
+  },
 };
 
 String(obj);
@@ -230,26 +228,26 @@ String(obj);
 
 ```javascript
 String({
-	toString: function () {
-		return 3;
-	},
+  toString: function () {
+    return 3;
+  },
 });
 // "3"
 
 String({
-	valueOf: function () {
-		return 2;
-	},
+  valueOf: function () {
+    return 2;
+  },
 });
 // "[object Object]"
 
 String({
-	valueOf: function () {
-		return 2;
-	},
-	toString: function () {
-		return 3;
-	},
+  valueOf: function () {
+    return 2;
+  },
+  toString: function () {
+    return 3;
+  },
 });
 // "3"
 ```
@@ -309,7 +307,7 @@ Boolean(new Boolean(false)); // true
 
 ```javascript
 if ('abc') {
-	console.log('hello');
+  console.log('hello');
 } // "hello"
 ```
 
@@ -367,7 +365,7 @@ JavaScript 遇到预期为字符串的地方，就会将非字符串的值自动
 
 ```javascript
 var obj = {
-	width: '100',
+  width: '100',
 };
 
 obj.width + 20; // "10020"

@@ -4,8 +4,12 @@ import { defineConfig } from "vitepress";
 export default defineConfig({
   title: "WebSite",
   description: "WebSite",
+
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
+    search: {
+      provider: "local",
+    },
     nav: [
       { text: "Home", link: "/" },
       { text: "Examples", link: "/markdown-examples" },

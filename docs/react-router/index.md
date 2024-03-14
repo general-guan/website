@@ -1,6 +1,4 @@
----
-title: React-Router
----
+# React-Router
 
 ## 安装
 
@@ -10,21 +8,23 @@ npm install react-router-dom
 
 ## 开始
 
-```tsx
-//main.tsx
+::: code-group
 
+```tsx [main.tsx]
 import ReactDOM from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 const router = createBrowserRouter([
-	{ path: '/', element: <h1>Hello World!</h1> },
-	{ path: '/about', element: <h1>Hello About!</h1> },
+  { path: '/', element: <h1>Hello World!</h1> },
+  { path: '/about', element: <h1>Hello About!</h1> },
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
-	<RouterProvider router={router}></RouterProvider>
+  <RouterProvider router={router}></RouterProvider>
 );
 ```
+
+:::
 
 ## 组件
 
@@ -42,38 +42,38 @@ import { Link } from 'react-router-dom';
 
 > 类似 Layout 子组件的作用
 
-```tsx
-// Layout.tsx
+::: code-group
 
+```tsx [Layout.tsx]
 import { Link, Outlet } from 'react-router-dom';
 
 const LayoutPage = () => {
-	return (
-		<>
-			<Link to="/">To Home</Link>
-			<Link to="/about">To About</Link>
-			<Outlet />
-		</>
-	);
+  return (
+    <>
+      <Link to="/">To Home</Link>
+      <Link to="/about">To About</Link>
+      <Outlet />
+    </>
+  );
 };
 
 export default LayoutPage;
 ```
 
-```tsx
-// main.tsx
-
+```tsx [main.tsx]
 const router = createBrowserRouter([
-	{
-		path: '/',
-		element: <Layout />,
-		children: [
-			{ path: '/', element: <h1>Hello World!</h1> },
-			{ path: '/about', element: <h1>Hello About!</h1> },
-		],
-	},
+  {
+    path: '/',
+    element: <Layout />,
+    children: [
+      { path: '/', element: <h1>Hello World!</h1> },
+      { path: '/about', element: <h1>Hello About!</h1> },
+    ],
+  },
 ]);
 ```
+
+:::
 
 ### NavLink
 
@@ -83,12 +83,12 @@ const router = createBrowserRouter([
 import { NavLink } from 'react-router-dom';
 
 <NavLink
-	to="/messages"
-	className={({ isActive, isPending }) =>
-		isPending ? 'pending' : isActive ? 'active' : ''
-	}
+  to="/messages"
+  className={({ isActive, isPending }) =>
+    isPending ? 'pending' : isActive ? 'active' : ''
+  }
 >
-	Messages
+  Messages
 </NavLink>;
 ```
 
@@ -98,40 +98,41 @@ import { NavLink } from 'react-router-dom';
 
 > 页面加载前获取数据，也可以用来获取 url 里的参数
 
-```tsx
-// Posts.tsx
+::: code-group
+
+```tsx [Posts.tsx]
 import { useLoaderData } from 'react-router-dom';
 
 const PostsPage = () => {
-	const { id } = useLoaderData();
-	console.log(id);
-	return <h1>Hello Posts!</h1>;
+  const { id } = useLoaderData();
+  console.log(id);
+  return <h1>Hello Posts!</h1>;
 };
 
 export default PostsPage;
 ```
 
-```tsx
-// main.tsx
-
+```tsx [main.tsx]
 const router = createBrowserRouter([
-	{
-		path: '/',
-		element: <Layout />,
-		children: [
-			{
-				path: '/posts/:id',
-				element: <Posts />,
-				loader: async ({ params }) => {
-					return {
-						id: params.id,
-					};
-				},
-			},
-		],
-	},
+  {
+    path: '/',
+    element: <Layout />,
+    children: [
+      {
+        path: '/posts/:id',
+        element: <Posts />,
+        loader: async ({ params }) => {
+          return {
+            id: params.id,
+          };
+        },
+      },
+    ],
+  },
 ]);
 ```
+
+:::
 
 ## 参考
 

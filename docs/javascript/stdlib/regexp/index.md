@@ -1,6 +1,4 @@
----
-title: RegExp 对象
----
+# RegExp 对象
 
 `RegExp` 对象提供正则表达式的功能
 

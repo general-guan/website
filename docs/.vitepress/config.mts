@@ -4,11 +4,19 @@ import { defineConfig } from 'vitepress';
 export default defineConfig({
   title: 'WebSite',
   description: 'WebSite',
-
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     search: {
       provider: 'local',
+    },
+
+    docFooter: {
+      prev: '上一页',
+      next: '下一页',
+    },
+
+    outline: {
+      label: '页面导航',
     },
 
     sidebar: [

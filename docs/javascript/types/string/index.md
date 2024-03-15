@@ -1,6 +1,6 @@
 # 字符串
 
-## 简介
+## 概述
 
 ### 定义
 
@@ -42,16 +42,16 @@ c'
 
 ```js
 (function () {
-	/*
+  /*
 line 1
 line 2
 line 3
 */
 })
-	.toString()
-	.split('\n')
-	.slice(1, -1)
-	.join('\n');
+  .toString()
+  .split('\n')
+  .slice(1, -1)
+  .join('\n');
 // "line 1
 // line 2
 // line 3"
@@ -217,11 +217,11 @@ btoa('你好'); // 报错
 
 ```js
 function b64Encode(str) {
-	return btoa(encodeURIComponent(str));
+  return btoa(encodeURIComponent(str));
 }
 
 function b64Decode(str) {
-	return decodeURIComponent(atob(str));
+  return decodeURIComponent(atob(str));
 }
 
 b64Encode('你好'); // "JUU0JUJEJUEwJUU1JUE1JUJE"

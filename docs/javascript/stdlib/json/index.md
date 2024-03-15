@@ -22,7 +22,7 @@ JSON 对值的类型和格式有严格的规定
 
 以下都是合法的 JSON
 
-```javascript
+```json
 ["one", "two", "three"]
 
 { "one": 1, "two": 2, "three": 3 }
@@ -34,7 +34,7 @@ JSON 对值的类型和格式有严格的规定
 
 以下都是不合法的 JSON
 
-```javascript
+```json
 { name: "张三", 'age': 32 }  // 属性名必须使用双引号
 
 [32, 64, 128, 0xFFF] // 不能使用十六进制值
@@ -95,8 +95,8 @@ JSON.stringify('false'); // '"false"'
 
 ```javascript
 var obj = {
-	a: undefined,
-	b: function () {},
+  a: undefined,
+  b: function () {},
 };
 
 JSON.stringify(obj); // '{}'
@@ -120,14 +120,14 @@ JSON.stringify(/foo/); // '{}'
 ```javascript
 var obj = {};
 Object.defineProperties(obj, {
-	foo: {
-		value: 1,
-		enumerable: true,
-	},
-	bar: {
-		value: 2,
-		enumerable: false,
-	},
+  foo: {
+    value: 1,
+    enumerable: true,
+  },
+  bar: {
+    value: 2,
+    enumerable: false,
+  },
 });
 
 JSON.stringify(obj); // '{"foo":1}'
@@ -139,9 +139,9 @@ JSON.stringify(obj); // '{"foo":1}'
 
 ```javascript
 var obj = {
-	prop1: 'value1',
-	prop2: 'value2',
-	prop3: 'value3',
+  prop1: 'value1',
+  prop2: 'value2',
+  prop3: 'value3',
 };
 
 var selectedProperties = ['prop1', 'prop2'];
@@ -164,10 +164,10 @@ JSON.stringify({ 0: 'a', 1: 'b' }, ['0']);
 
 ```javascript
 function f(key, value) {
-	if (typeof value === 'number') {
-		value = 2 * value;
-	}
-	return value;
+  if (typeof value === 'number') {
+    value = 2 * value;
+  }
+  return value;
 }
 
 JSON.stringify({ a: 1, b: 2 }, f);
@@ -180,8 +180,8 @@ JSON.stringify({ a: 1, b: 2 }, f);
 var obj = { a: { b: 1 } };
 
 function f(key, value) {
-	console.log('[' + key + ']:' + value);
-	return value;
+  console.log('[' + key + ']:' + value);
+  return value;
 }
 
 JSON.stringify(obj, f);
@@ -199,10 +199,10 @@ JSON.stringify(obj, f);
 var obj = { a: 1 };
 
 function f(key, value) {
-	if (typeof value === 'object') {
-		return { b: 2 };
-	}
-	return value * 2;
+  if (typeof value === 'object') {
+    return { b: 2 };
+  }
+  return value * 2;
 }
 
 JSON.stringify(obj, f);
@@ -213,10 +213,10 @@ JSON.stringify(obj, f);
 
 ```javascript
 function f(key, value) {
-	if (typeof value === 'string') {
-		return undefined;
-	}
-	return value;
+  if (typeof value === 'string') {
+    return undefined;
+  }
+  return value;
 }
 
 JSON.stringify({ a: 'abc', b: 123 }, f);
@@ -261,12 +261,12 @@ JSON.stringify({ p1: 1, p2: 2 }, null, 2);
 
 ```javascript
 var user = {
-	firstName: '三',
-	lastName: '张',
+  firstName: '三',
+  lastName: '张',
 
-	get fullName() {
-		return this.lastName + this.firstName;
-	},
+  get fullName() {
+    return this.lastName + this.firstName;
+  },
 };
 
 JSON.stringify(user); // '{"firstName":"三","lastName":"张","fullName":"张三"}'
@@ -276,18 +276,18 @@ JSON.stringify(user); // '{"firstName":"三","lastName":"张","fullName":"张三
 
 ```javascript
 var user = {
-	firstName: '三',
-	lastName: '张',
+  firstName: '三',
+  lastName: '张',
 
-	get fullName() {
-		return this.lastName + this.firstName;
-	},
+  get fullName() {
+    return this.lastName + this.firstName;
+  },
 
-	toJSON: function () {
-		return {
-			name: this.lastName + this.firstName,
-		};
-	},
+  toJSON: function () {
+    return {
+      name: this.lastName + this.firstName,
+    };
+  },
 };
 
 JSON.stringify(user); // '{"name":"张三"}'
@@ -305,7 +305,7 @@ JSON.stringify(date); // '"2015-01-01T00:00:00.000Z"'
 
 ```javascript
 var obj = {
-	reg: /foo/,
+  reg: /foo/,
 };
 
 // 不设置 toJSON 方法时
@@ -342,9 +342,9 @@ JSON.parse("'String'"); // illegal single quotes
 
 ```javascript
 try {
-	JSON.parse("'String'");
+  JSON.parse("'String'");
 } catch (e) {
-	console.log('parsing error');
+  console.log('parsing error');
 }
 ```
 
@@ -352,10 +352,10 @@ try {
 
 ```javascript
 function f(key, value) {
-	if (key === 'a') {
-		return value + 10;
-	}
-	return value;
+  if (key === 'a') {
+    return value + 10;
+  }
+  return value;
 }
 
 JSON.parse('{"a": 1, "b": 2}', f);
@@ -370,4 +370,3 @@ JSON.parse(JSON.stringify(obj));
 
 上面这种写法，可以深度克隆一个对象，但是对象内部不能有 JSON
 不允许的数据类型，比如函数、正则对象、日期对象等
-

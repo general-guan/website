@@ -282,16 +282,16 @@ var regex = /xyz/i;
 
 ## 实例属性
 
-正则对象的实例属性分成两类。
+正则对象的实例属性分成两类
 
-一类是修饰符相关，用于了解设置了什么修饰符。
+一类是修饰符相关，用于了解设置了什么修饰符
 
-- `RegExp.prototype.ignoreCase`：返回一个布尔值，表示是否设置了`i`修饰符。
-- `RegExp.prototype.global`：返回一个布尔值，表示是否设置了`g`修饰符。
-- `RegExp.prototype.multiline`：返回一个布尔值，表示是否设置了`m`修饰符。
-- `RegExp.prototype.flags`：返回一个字符串，包含了已经设置的所有修饰符，按字母排序。
+- `RegExp.prototype.ignoreCase`：返回一个布尔值，表示是否设置了 `i` 修饰符
+- `RegExp.prototype.global`：返回一个布尔值，表示是否设置了 `g` 修饰符
+- `RegExp.prototype.multiline`：返回一个布尔值，表示是否设置了 `m` 修饰符
+- `RegExp.prototype.flags`：返回一个字符串，包含了已经设置的所有修饰符，按字母排序
 
-上面四个属性都是只读的。
+上面四个属性都是只读的
 
 ```javascript
 var r = /abc/gim;
@@ -302,10 +302,10 @@ r.multiline; // true
 r.flags; // 'gim'
 ```
 
-另一类是与修饰符无关的属性，主要是下面两个。
+另一类是与修饰符无关的属性，主要是下面两个
 
-- `RegExp.prototype.lastIndex`：返回一个整数，表示下一次开始搜索的位置。该属性可读写，但是只在进行连续搜索时有意义，详细介绍请看后文。
-- `RegExp.prototype.source`：返回正则表达式的字符串形式（不包括反斜杠），该属性只读。
+- `RegExp.prototype.lastIndex`：返回一个整数，表示下一次开始搜索的位置。该属性可读写，但是只在进行连续搜索时有意义，详细介绍请看后文
+- `RegExp.prototype.source`：返回正则表达式的字符串形式（不包括反斜杠），该属性只读
 
 ```javascript
 var r = /abc/gim;
@@ -318,15 +318,15 @@ r.source; // "abc"
 
 ### RegExp.prototype.test()
 
-正则实例对象的`test`方法返回一个布尔值，表示当前模式是否能匹配参数字符串。
+正则实例对象的 `test` 方法返回一个布尔值，表示当前模式是否能匹配参数字符串
 
 ```javascript
 /cat/.test('cats and dogs'); // true
 ```
 
-上面代码验证参数字符串之中是否包含`cat`，结果返回`true`。
+上面代码验证参数字符串之中是否包含 `cat`，结果返回 `true`
 
-如果正则表达式带有`g`修饰符，则每一次`test`方法都从上一次结束的位置开始向后匹配。
+如果正则表达式带有 `g` 修饰符，则每一次 `test` 方法都从上一次结束的位置开始向后匹配
 
 ```javascript
 var r = /x/g;
@@ -342,7 +342,7 @@ r.lastIndex; // 4
 r.test(s); // false
 ```
 
-上面代码的正则表达式使用了`g`修饰符，表示是全局搜索，会有多个结果。接着，三次使用`test`方法，每一次开始搜索的位置都是上一次匹配的后一个位置。
+上面代码的正则表达式使用了 `g` 修饰符，表示是全局搜索，会有多个结果。接着，三次使用 `test` 方法，每一次开始搜索的位置都是上一次匹配的后一个位置
 
 带有`g`修饰符时，可以通过正则对象的`lastIndex`属性指定开始搜索的位置。
 
@@ -463,9 +463,9 @@ var reg = /a/g;
 var str = 'abc_abc_abc';
 
 while (true) {
-	var match = reg.exec(str);
-	if (!match) break;
-	console.log('#' + match.index + ':' + match[0]);
+  var match = reg.exec(str);
+  if (!match) break;
+  console.log('#' + match.index + ':' + match[0]);
 }
 // #0:a
 // #4:a
@@ -581,7 +581,7 @@ str.replace(/^\s+|\s+$/g, '');
 
 ```javascript
 '3 and 5'.replace(/[0-9]+/g, function (match) {
-	return 2 * match;
+  return 2 * match;
 });
 // "6 and 10"
 
@@ -589,7 +589,7 @@ var a = 'The quick brown fox jumped over the lazy dog.';
 var pattern = /quick|brown|lazy/gi;
 
 a.replace(pattern, function replacer(match) {
-	return match.toUpperCase();
+  return match.toUpperCase();
 });
 // The QUICK BROWN fox jumped over the LAZY dog.
 ```
@@ -598,19 +598,19 @@ a.replace(pattern, function replacer(match) {
 
 ```javascript
 var prices = {
-	p1: '$1.99',
-	p2: '$9.99',
-	p3: '$5.00',
+  p1: '$1.99',
+  p2: '$9.99',
+  p3: '$5.00',
 };
 
 var template =
-	'<span id="p1"></span>' + '<span id="p2"></span>' + '<span id="p3"></span>';
+  '<span id="p1"></span>' + '<span id="p2"></span>' + '<span id="p3"></span>';
 
 template.replace(
-	/(<span id=")(.*?)(">)(<\/span>)/g,
-	function (match, $1, $2, $3, $4) {
-		return $1 + $2 + $3 + prices[$2] + $4;
-	}
+  /(<span id=")(.*?)(">)(<\/span>)/g,
+  function (match, $1, $2, $3, $4) {
+    return $1 + $2 + $3 + prices[$2] + $4;
+  }
 );
 // "<span id="p1">$1.99</span><span id="p2">$9.99</span><span id="p3">$5.00</span>"
 ```
@@ -662,5 +662,3 @@ str.split(separator, [limit]);
 ```
 
 上面代码的正则表达式使用了括号，第一个组匹配是`aaa`，第二个组匹配是`a`，它们都作为数组成员返回。
-
-

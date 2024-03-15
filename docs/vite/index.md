@@ -10,25 +10,30 @@ pnpm create vite
 
 ## 配置 alias
 
-```tsx
-// vite.config.ts
-import path from 'path'
+:::code-group
+
+```ts [vite.config.ts]
+import path from 'path' // [!code ++]
 
 resolve: {
-  alias: { '@': path.resolve(__dirname, 'src') },
+  alias: { '@': path.resolve(__dirname, 'src') }, // [!code ++]
 },
 ```
 
-```json
-// tsconfig.json
+:::
+:::code-group
+
+```json [tsconfig.json]
 {
   "compilerOptions": {
-    "baseUrl": "./",
-    "paths": { "@/*": ["src/*"] }
+    "baseUrl": "./", // [!code ++]
+    "paths": { "@/*": ["src/*"] } // [!code ++]
   }
 }
 ```
 
+:::
+
 ## 参考
 
-[官网](https://cn.vitejs.dev/)
+[Vite 官网](https://cn.vitejs.dev/)

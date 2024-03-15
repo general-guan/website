@@ -10,11 +10,13 @@ npm config set registry https://registry.npmmirror.com/
 ```
 
 **局部设置**
+::: code-group
 
-```
-# .npmrc
+```[.npmrc]
 registry = https://registry.npmmirror.com/
 ```
+
+:::
 
 ## 参考
 

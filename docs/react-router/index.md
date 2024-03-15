@@ -12,15 +12,15 @@ npm install react-router-dom
 
 ```tsx [main.tsx]
 import ReactDOM from 'react-dom/client';
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'; // [!code ++]
 
 const router = createBrowserRouter([
-  { path: '/', element: <h1>Hello World!</h1> },
-  { path: '/about', element: <h1>Hello About!</h1> },
+  { path: '/', element: <h1>Hello World!</h1> }, // [!code ++]
+  { path: '/about', element: <h1>Hello About!</h1> }, // [!code ++]
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
-  <RouterProvider router={router}></RouterProvider>
+  <RouterProvider router={router}></RouterProvider> // [!code highlight]
 );
 ```
 
@@ -44,6 +44,19 @@ import { Link } from 'react-router-dom';
 
 ::: code-group
 
+```tsx [main.tsx]
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <Layout />,
+    children: [
+      { path: '/', element: <h1>Hello World!</h1> },
+      { path: '/about', element: <h1>Hello About!</h1> },
+    ],
+  },
+]);
+```
+
 ```tsx [Layout.tsx]
 import { Link, Outlet } from 'react-router-dom';
 
@@ -58,19 +71,6 @@ const LayoutPage = () => {
 };
 
 export default LayoutPage;
-```
-
-```tsx [main.tsx]
-const router = createBrowserRouter([
-  {
-    path: '/',
-    element: <Layout />,
-    children: [
-      { path: '/', element: <h1>Hello World!</h1> },
-      { path: '/about', element: <h1>Hello About!</h1> },
-    ],
-  },
-]);
 ```
 
 :::
@@ -100,18 +100,6 @@ import { NavLink } from 'react-router-dom';
 
 ::: code-group
 
-```tsx [Posts.tsx]
-import { useLoaderData } from 'react-router-dom';
-
-const PostsPage = () => {
-  const { id } = useLoaderData();
-  console.log(id);
-  return <h1>Hello Posts!</h1>;
-};
-
-export default PostsPage;
-```
-
 ```tsx [main.tsx]
 const router = createBrowserRouter([
   {
@@ -132,10 +120,22 @@ const router = createBrowserRouter([
 ]);
 ```
 
+```tsx [Posts.tsx]
+import { useLoaderData } from 'react-router-dom';
+
+const PostsPage = () => {
+  const { id } = useLoaderData();
+  console.log(id);
+  return <h1>Hello Posts!</h1>;
+};
+
+export default PostsPage;
+```
+
 :::
 
 ## 参考
 
-[官网](https://reactrouter.com/en/main)
+[React-Router 官网](https://reactrouter.com/en/main)
 
 [2023 最新 React Router 基础及 Data API ｜粤语中字\_哔哩哔哩\_bilibili](https://www.bilibili.com/video/BV1FX4y1q72i/?spm_id_from=333.999.top_right_bar_window_custom_collection.content.click&vd_source=b3e9124ff68b33f00aefe373ee0d070e)

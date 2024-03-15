@@ -3,16 +3,13 @@
 layout: home
 
 hero:
-  name: "WebSite"
-  text: "WebSite"
+  name: 'WebSite'
+  text: 'WebSite'
   tagline: My great project tagline
   actions:
     - theme: brand
       text: Markdown Examples
-      link: /markdown-examples
-    - theme: alt
-      text: API Examples
-      link: /api-examples
+      link: /favorite-sites/
 
 features:
   - title: Feature A
@@ -22,4 +19,3 @@ features:
   - title: Feature C
     details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
 ---
-

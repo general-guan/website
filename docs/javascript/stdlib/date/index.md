@@ -1,32 +1,26 @@
----
-title: AAAAA
----
-
 # Date 对象
 
-`Date`对象是 JavaScript 原生的时间库。它以国际标准时间（UTC）1970 年 1 月 1 日 00:00:00 作为时间的零点，可以表示的时间范围是前后各 1 亿天（单位为毫秒）。
+`Date` 对象是 JavaScript 原生的时间库。它以国际标准时间（UTC）1970 年 1 月 1 日 00:00:00 作为时间的零点，可以表示的时间范围是前后各 1 亿天（单位为毫秒）
 
 ## 普通函数的用法
 
-`Date`对象可以作为普通函数直接调用，返回一个代表当前时间的字符串。
+`Date` 对象可以作为普通函数直接调用，返回一个代表当前时间的字符串
 
 ```javascript
 Date();
 // "Tue Dec 01 2015 09:34:43 GMT+0800 (CST)"
 ```
 
-注意，即使带有参数，`Date`作为普通函数使用时，返回的还是当前时间。
+无论有没有参数，直接调用 `Date()` 总是返回当前时间
 
 ```javascript
 Date(2000, 1, 1);
 // "Tue Dec 01 2015 09:34:43 GMT+0800 (CST)"
 ```
 
-上面代码说明，无论有没有参数，直接调用`Date`总是返回当前时间。
-
 ## 构造函数的用法
 
-`Date`还可以当作构造函数使用。对它使用`new`命令，会返回一个`Date`对象的实例。如果不加参数，实例代表的就是当前时间。
+`Date` 还可以当作构造函数使用。对它使用 `new` 命令，会返回一个 `Date` 对象的实例。如果不加参数，实例代表的就是当前时间
 
 ```javascript
 var today = new Date();
@@ -374,39 +368,39 @@ d.toLocaleTimeString('zh-CN'); // "00:00:00"
 var d = new Date(2013, 0, 1);
 
 d.toLocaleDateString('en-US', {
-	weekday: 'long',
-	year: 'numeric',
-	month: 'long',
-	day: 'numeric',
+  weekday: 'long',
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
 });
 // "Tuesday, January 1, 2013"
 
 d.toLocaleDateString('en-US', {
-	day: '2-digit',
-	month: 'long',
-	year: '2-digit',
+  day: '2-digit',
+  month: 'long',
+  year: '2-digit',
 });
 // "January 01, 13"
 
 d.toLocaleTimeString('en-US', {
-	timeZone: 'UTC',
-	timeZoneName: 'short',
+  timeZone: 'UTC',
+  timeZoneName: 'short',
 });
 // "4:00:00 PM UTC"
 
 d.toLocaleTimeString('en-US', {
-	timeZone: 'Asia/Shanghai',
-	timeZoneName: 'long',
+  timeZone: 'Asia/Shanghai',
+  timeZoneName: 'long',
 });
 // "12:00:00 AM China Standard Time"
 
 d.toLocaleTimeString('en-US', {
-	hour12: false,
+  hour12: false,
 });
 // "00:00:00"
 
 d.toLocaleTimeString('en-US', {
-	hour12: true,
+  hour12: true,
 });
 // "12:00:00 AM"
 ```
@@ -449,10 +443,10 @@ d.getTimezoneOffset(); // -480
 
 ```javascript
 function leftDays() {
-	var today = new Date();
-	var endYear = new Date(today.getFullYear(), 11, 31, 23, 59, 59, 999);
-	var msPerDay = 24 * 60 * 60 * 1000;
-	return Math.round((endYear.getTime() - today.getTime()) / msPerDay);
+  var today = new Date();
+  var endYear = new Date(today.getFullYear(), 11, 31, 23, 59, 59, 999);
+  var msPerDay = 24 * 60 * 60 * 1000;
+  return Math.round((endYear.getTime() - today.getTime()) / msPerDay);
 }
 ```
 

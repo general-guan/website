@@ -1,6 +1,6 @@
 # undefined 和 null
 
-## 简介
+## 概述
 
 `null` 表示一个 “空” 的对象
 

@@ -1,6 +1,6 @@
 # Object 对象
 
-## 简介
+## 概述
 
 JavaScript 原生提供 `Object` 对象，本章介绍该对象原生的各种方法
 

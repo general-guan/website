@@ -77,6 +77,10 @@ export default defineConfig({
                 link: '/javascript/stdlib/array/',
               },
               {
+                text: 'Math 对象',
+                link: '/javascript/stdlib/math/',
+              },
+              {
                 text: 'RegExp 对象',
                 link: '/javascript/stdlib/regexp/',
               },

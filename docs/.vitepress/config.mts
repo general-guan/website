@@ -81,6 +81,10 @@ export default defineConfig({
                 link: '/javascript/stdlib/math/',
               },
               {
+                text: 'String 对象',
+                link: '/javascript/stdlib/string/',
+              },
+              {
                 text: 'Date 对象',
                 link: '/javascript/stdlib/date/',
               },

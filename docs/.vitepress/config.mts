@@ -73,24 +73,28 @@ export default defineConfig({
                 link: '/javascript/stdlib/attributes/',
               },
               {
-                text: 'Array 对象',
-                link: '/javascript/stdlib/array/',
-              },
-              {
                 text: '包装对象 对象',
                 link: '/javascript/stdlib/wrapper/',
+              },
+              {
+                text: 'String 对象',
+                link: '/javascript/stdlib/string/',
+              },
+              {
+                text: 'Number 对象',
+                link: '/javascript/stdlib/number/',
               },
               {
                 text: 'Boolean 对象',
                 link: '/javascript/stdlib/boolean/',
               },
               {
-                text: 'Math 对象',
-                link: '/javascript/stdlib/math/',
+                text: 'Array 对象',
+                link: '/javascript/stdlib/array/',
               },
               {
-                text: 'String 对象',
-                link: '/javascript/stdlib/string/',
+                text: 'Math 对象',
+                link: '/javascript/stdlib/math/',
               },
               {
                 text: 'Date 对象',

@@ -77,6 +77,10 @@ export default defineConfig({
                 link: '/javascript/stdlib/array/',
               },
               {
+                text: '包装对象 对象',
+                link: '/javascript/stdlib/wrapper/',
+              },
+              {
                 text: 'Boolean 对象',
                 link: '/javascript/stdlib/boolean/',
               },

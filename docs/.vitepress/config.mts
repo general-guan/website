@@ -77,6 +77,10 @@ export default defineConfig({
                 link: '/javascript/stdlib/array/',
               },
               {
+                text: 'Boolean 对象',
+                link: '/javascript/stdlib/boolean/',
+              },
+              {
                 text: 'Math 对象',
                 link: '/javascript/stdlib/math/',
               },

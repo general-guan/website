@@ -110,6 +110,15 @@ export default defineConfig({
               },
             ],
           },
+          {
+            text: '面向对象编程',
+            items: [
+              {
+                text: '实例对象与 new 命令',
+                link: '/javascript/oop/new/',
+              },
+            ],
+          },
         ],
       },
       {

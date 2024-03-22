@@ -1,7 +1,3 @@
----
-title: AAAAA
----
-
 # this 关键字
 
 ## 涵义
@@ -22,10 +18,10 @@ this.property;
 
 ```javascript
 var person = {
-	name: '张三',
-	describe: function () {
-		return '姓名：' + this.name;
-	},
+  name: '张三',
+  describe: function () {
+    return '姓名：' + this.name;
+  },
 };
 
 person.describe();
@@ -38,14 +34,14 @@ person.describe();
 
 ```javascript
 var A = {
-	name: '张三',
-	describe: function () {
-		return '姓名：' + this.name;
-	},
+  name: '张三',
+  describe: function () {
+    return '姓名：' + this.name;
+  },
 };
 
 var B = {
-	name: '李四',
+  name: '李四',
 };
 
 B.describe = A.describe;
@@ -59,17 +55,17 @@ B.describe();
 
 ```javascript
 function f() {
-	return '姓名：' + this.name;
+  return '姓名：' + this.name;
 }
 
 var A = {
-	name: '张三',
-	describe: f,
+  name: '张三',
+  describe: f,
 };
 
 var B = {
-	name: '李四',
-	describe: f,
+  name: '李四',
+  describe: f,
 };
 
 A.describe(); // "姓名：张三"
@@ -82,10 +78,10 @@ B.describe(); // "姓名：李四"
 
 ```javascript
 var A = {
-	name: '张三',
-	describe: function () {
-		return '姓名：' + this.name;
-	},
+  name: '张三',
+  describe: function () {
+    return '姓名：' + this.name;
+  },
 };
 
 var name = '李四';
@@ -101,9 +97,9 @@ f(); // "姓名：李四"
 <input type="text" name="age" size="3" onChange="validate(this, 18, 99);" />
 
 <script>
-	function validate(obj, lowval, hival) {
-		if (obj.value < lowval || obj.value > hival) console.log('Invalid Value!');
-	}
+  function validate(obj, lowval, hival) {
+    if (obj.value < lowval || obj.value > hival) console.log('Invalid Value!');
+  }
 </script>
 ```
 
@@ -170,7 +166,7 @@ JavaScript 允许在函数体内部，引用当前环境的其他变量。
 
 ```javascript
 var f = function () {
-	console.log(x);
+  console.log(x);
 };
 ```
 
@@ -180,7 +176,7 @@ var f = function () {
 
 ```javascript
 var f = function () {
-	console.log(this.x);
+  console.log(this.x);
 };
 ```
 
@@ -188,13 +184,13 @@ var f = function () {
 
 ```javascript
 var f = function () {
-	console.log(this.x);
+  console.log(this.x);
 };
 
 var x = 1;
 var obj = {
-	f: f,
-	x: 2,
+  f: f,
+  x: 2,
 };
 
 // 单独执行
@@ -218,7 +214,7 @@ obj.f(); // 2
 this === window; // true
 
 function f() {
-	console.log(this === window);
+  console.log(this === window);
 }
 f(); // true
 ```
@@ -231,7 +227,7 @@ f(); // true
 
 ```javascript
 var Obj = function (p) {
-	this.p = p;
+  this.p = p;
 };
 ```
 
@@ -250,9 +246,9 @@ o.p; // "Hello World!"
 
 ```javascript
 var obj = {
-	foo: function () {
-		console.log(this);
-	},
+  foo: function () {
+    console.log(this);
+  },
 };
 
 obj.foo(); // obj
@@ -265,14 +261,14 @@ obj.foo(); // obj
 ```javascript
 // 情况一
 (obj.foo = obj.foo)()(
-	// window
-	// 情况二
-	false || obj.foo
+  // window
+  // 情况二
+  false || obj.foo
 )()(
-	// window
-	// 情况三
-	1,
-	obj.foo
+  // window
+  // 情况三
+  1,
+  obj.foo
 )(); // window
 ```
 
@@ -283,24 +279,24 @@ obj.foo(); // obj
 ```javascript
 // 情况一
 (obj.foo = function () {
-	console.log(this);
+  console.log(this);
 })()(
-	// 等同于
-	function () {
-		console.log(this);
-	}
+  // 等同于
+  function () {
+    console.log(this);
+  }
 )()(
-	// 情况二
-	false ||
-		function () {
-			console.log(this);
-		}
+  // 情况二
+  false ||
+    function () {
+      console.log(this);
+    }
 )()(
-	// 情况三
-	1,
-	function () {
-		console.log(this);
-	}
+  // 情况三
+  1,
+  function () {
+    console.log(this);
+  }
 )();
 ```
 
@@ -308,12 +304,12 @@ obj.foo(); // obj
 
 ```javascript
 var a = {
-	p: 'Hello',
-	b: {
-		m: function () {
-			console.log(this.p);
-		},
-	},
+  p: 'Hello',
+  b: {
+    m: function () {
+      console.log(this.p);
+    },
+  },
 };
 
 a.b.m(); // undefined
@@ -323,14 +319,14 @@ a.b.m(); // undefined
 
 ```javascript
 var b = {
-	m: function () {
-		console.log(this.p);
-	},
+  m: function () {
+    console.log(this.p);
+  },
 };
 
 var a = {
-	p: 'Hello',
-	b: b,
+  p: 'Hello',
+  b: b,
 };
 
 a.b.m(); // 等同于 b.m()
@@ -340,12 +336,12 @@ a.b.m(); // 等同于 b.m()
 
 ```javascript
 var a = {
-	b: {
-		m: function () {
-			console.log(this.p);
-		},
-		p: 'Hello',
-	},
+  b: {
+    m: function () {
+      console.log(this.p);
+    },
+    p: 'Hello',
+  },
 };
 ```
 
@@ -353,12 +349,12 @@ var a = {
 
 ```javascript
 var a = {
-	b: {
-		m: function () {
-			console.log(this.p);
-		},
-		p: 'Hello',
-	},
+  b: {
+    m: function () {
+      console.log(this.p);
+    },
+    p: 'Hello',
+  },
 };
 
 var hello = a.b.m;
@@ -380,12 +376,12 @@ hello.m(); // Hello
 
 ```javascript
 var o = {
-	f1: function () {
-		console.log(this);
-		var f2 = (function () {
-			console.log(this);
-		})();
-	},
+  f1: function () {
+    console.log(this);
+    var f2 = (function () {
+      console.log(this);
+    })();
+  },
 };
 
 o.f1();
@@ -397,14 +393,14 @@ o.f1();
 
 ```javascript
 var temp = function () {
-	console.log(this);
+  console.log(this);
 };
 
 var o = {
-	f1: function () {
-		console.log(this);
-		var f2 = temp();
-	},
+  f1: function () {
+    console.log(this);
+    var f2 = temp();
+  },
 };
 ```
 
@@ -412,13 +408,13 @@ var o = {
 
 ```javascript
 var o = {
-	f1: function () {
-		console.log(this);
-		var that = this;
-		var f2 = (function () {
-			console.log(that);
-		})();
-	},
+  f1: function () {
+    console.log(this);
+    var that = this;
+    var f2 = (function () {
+      console.log(that);
+    })();
+  },
 };
 
 o.f1();
@@ -434,11 +430,11 @@ JavaScript 提供了严格模式，也可以硬性避免这种问题。严格模
 
 ```javascript
 var counter = {
-	count: 0,
+  count: 0,
 };
 counter.inc = function () {
-	'use strict';
-	this.count++;
+  'use strict';
+  this.count++;
 };
 var f = counter.inc;
 f();
@@ -453,13 +449,13 @@ f();
 
 ```javascript
 var o = {
-	v: 'hello',
-	p: ['a1', 'a2'],
-	f: function f() {
-		this.p.forEach(function (item) {
-			console.log(this.v + ' ' + item);
-		});
-	},
+  v: 'hello',
+  p: ['a1', 'a2'],
+  f: function f() {
+    this.p.forEach(function (item) {
+      console.log(this.v + ' ' + item);
+    });
+  },
 };
 
 o.f();
@@ -473,14 +469,14 @@ o.f();
 
 ```javascript
 var o = {
-	v: 'hello',
-	p: ['a1', 'a2'],
-	f: function f() {
-		var that = this;
-		this.p.forEach(function (item) {
-			console.log(that.v + ' ' + item);
-		});
-	},
+  v: 'hello',
+  p: ['a1', 'a2'],
+  f: function f() {
+    var that = this;
+    this.p.forEach(function (item) {
+      console.log(that.v + ' ' + item);
+    });
+  },
 };
 
 o.f();
@@ -492,13 +488,13 @@ o.f();
 
 ```javascript
 var o = {
-	v: 'hello',
-	p: ['a1', 'a2'],
-	f: function f() {
-		this.p.forEach(function (item) {
-			console.log(this.v + ' ' + item);
-		}, this);
-	},
+  v: 'hello',
+  p: ['a1', 'a2'],
+  f: function f() {
+    this.p.forEach(function (item) {
+      console.log(this.v + ' ' + item);
+    }, this);
+  },
 };
 
 o.f();
@@ -513,7 +509,7 @@ o.f();
 ```javascript
 var o = new Object();
 o.f = function () {
-	console.log(this === o);
+  console.log(this === o);
 };
 
 // jQuery 的写法
@@ -536,7 +532,7 @@ $('#button').on('click', o.f);
 var obj = {};
 
 var f = function () {
-	return this;
+  return this;
 };
 
 f() === window; // true
@@ -552,7 +548,7 @@ var n = 123;
 var obj = { n: 456 };
 
 function a() {
-	console.log(this.n);
+  console.log(this.n);
 }
 
 a.call(); // 123
@@ -568,7 +564,7 @@ a.call(obj); // 456
 
 ```javascript
 var f = function () {
-	return this;
+  return this;
 };
 
 f.call(5);
@@ -587,7 +583,7 @@ func.call(thisValue, arg1, arg2, ...)
 
 ```javascript
 function add(a, b) {
-	return a + b;
+  return a + b;
 }
 
 add.call(this, 1, 2); // 3
@@ -603,7 +599,7 @@ obj.hasOwnProperty('toString'); // false
 
 // 覆盖掉继承的 hasOwnProperty 方法
 obj.hasOwnProperty = function () {
-	return true;
+  return true;
 };
 obj.hasOwnProperty('toString'); // true
 
@@ -624,7 +620,7 @@ func.apply(thisValue, [arg1, arg2, ...])
 
 ```javascript
 function f(x, y) {
-	console.log(x + y);
+  console.log(x + y);
 }
 
 f.call(null, 1, 1); // 2
@@ -659,7 +655,7 @@ Array.apply(null, ['a', , 'b']);
 var a = ['a', , 'b'];
 
 function print(i) {
-	console.log(i);
+  console.log(i);
 }
 
 a.forEach(print);
@@ -693,12 +689,12 @@ Array.prototype.slice.apply({ length: 1 }); // [undefined]
 var o = new Object();
 
 o.f = function () {
-	console.log(this === o);
+  console.log(this === o);
 };
 
 var f = function () {
-	o.f.apply(o);
-	// 或者 o.f.call(o);
+  o.f.apply(o);
+  // 或者 o.f.call(o);
 };
 
 // jQuery 的写法
@@ -734,10 +730,10 @@ print(); // 1481869925657
 
 ```javascript
 var counter = {
-	count: 0,
-	inc: function () {
-		this.count++;
-	},
+  count: 0,
+  inc: function () {
+    this.count++;
+  },
 };
 
 var func = counter.inc.bind(counter);
@@ -751,14 +747,14 @@ counter.count; // 1
 
 ```javascript
 var counter = {
-	count: 0,
-	inc: function () {
-		this.count++;
-	},
+  count: 0,
+  inc: function () {
+    this.count++;
+  },
 };
 
 var obj = {
-	count: 100,
+  count: 100,
 };
 var func = counter.inc.bind(obj);
 func();
@@ -771,12 +767,12 @@ obj.count; // 101
 
 ```javascript
 var add = function (x, y) {
-	return x * this.m + y * this.n;
+  return x * this.m + y * this.n;
 };
 
 var obj = {
-	m: 2,
-	n: 2,
+  m: 2,
+  n: 2,
 };
 
 var newAdd = add.bind(obj, 5);
@@ -789,7 +785,7 @@ newAdd(5); // 20
 
 ```javascript
 function add(x, y) {
-	return x + y;
+  return x + y;
 }
 
 var plus5 = add.bind(null, 5);
@@ -829,15 +825,15 @@ element.removeEventListener('click', listener);
 
 ```javascript
 var counter = {
-	count: 0,
-	inc: function () {
-		'use strict';
-		this.count++;
-	},
+  count: 0,
+  inc: function () {
+    'use strict';
+    this.count++;
+  },
 };
 
 function callIt(callback) {
-	callback();
+  callback();
 }
 
 callIt(counter.inc.bind(counter));
@@ -850,13 +846,13 @@ counter.count; // 1
 
 ```javascript
 var obj = {
-	name: '张三',
-	times: [1, 2, 3],
-	print: function () {
-		this.times.forEach(function (n) {
-			console.log(this.name);
-		});
-	},
+  name: '张三',
+  times: [1, 2, 3],
+  print: function () {
+    this.times.forEach(function (n) {
+      console.log(this.name);
+    });
+  },
 };
 
 obj.print();
@@ -867,9 +863,9 @@ obj.print();
 
 ```javascript
 obj.print = function () {
-	this.times.forEach(function (n) {
-		console.log(this === window);
-	});
+  this.times.forEach(function (n) {
+    console.log(this === window);
+  });
 };
 
 obj.print();
@@ -882,11 +878,11 @@ obj.print();
 
 ```javascript
 obj.print = function () {
-	this.times.forEach(
-		function (n) {
-			console.log(this.name);
-		}.bind(this)
-	);
+  this.times.forEach(
+    function (n) {
+      console.log(this.name);
+    }.bind(this)
+  );
 };
 
 obj.print();
@@ -932,7 +928,7 @@ a; // [1, 2, 3]
 
 ```javascript
 function f() {
-	console.log(this.v);
+  console.log(this.v);
 }
 
 var o = { v: 123 };

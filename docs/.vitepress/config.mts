@@ -117,6 +117,10 @@ export default defineConfig({
                 text: '实例对象与 new 命令',
                 link: '/javascript/oop/new/',
               },
+              {
+                text: 'this 关键字',
+                link: '/javascript/oop/this/',
+              },
             ],
           },
         ],

@@ -87,6 +87,7 @@
 
 ## 设计
 
-| 网站名称  | 链接                             | 描述       |
-| --------- | -------------------------------- | ---------- |
-| Scrollbar | [:link:](https://scrollbar.app/) | 滚动条样式 |
+| 网站名称  | 链接                             | 描述         |
+| --------- | -------------------------------- | ------------ |
+| Scrollbar | [:link:](https://scrollbar.app/) | 滚动条样式   |
+| Lucide    | [:link:](https://lucide.dev/)    | Lucide-icons |

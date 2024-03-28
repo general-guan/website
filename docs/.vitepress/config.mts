@@ -126,6 +126,10 @@ export default defineConfig({
         ],
       },
       {
+        text: 'Vue',
+        items: [{ text: '组件', link: '/vue/guide/components/' }],
+      },
+      {
         text: 'Vite',
         link: '/vite/',
       },
